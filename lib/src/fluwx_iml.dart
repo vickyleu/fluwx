@@ -408,8 +408,9 @@ Future launchWeChatMiniProgram(
 ///<true/>
 ///</dict>
 ///
-Future isWeChatInstalled() async {
-  return await _channel.invokeMethod("isWeChatInstalled");
+Future<bool> isWeChatInstalled() async {
+  final obj=await _channel.invokeMethod("isWeChatInstalled");
+  return (obj is bool)?obj:false;
 }
 
 /// params are from server
